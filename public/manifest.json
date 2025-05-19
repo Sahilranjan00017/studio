@@ -1,0 +1,23 @@
+{
+  "name": "BhoomiLink",
+  "short_name": "BhoomiLink",
+  "description": "Indian Contractor Platform for project, labor, and financial management.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5E7D4",
+  "theme_color": "#D97706",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
