@@ -2,18 +2,34 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, ListChecks, Calculator, Package, Users, FileText, Settings } from 'lucide-react';
+import { 
+  LayoutDashboard, 
+  ListChecks, 
+  Brain, // Changed from Calculator
+  FileText, 
+  Users, 
+  Calculator, // New for BOQ Calculators
+  DraftingCompass, 
+  KanbanSquare, // New for Projects
+  Landmark, 
+  ReceiptIndianRupee,
+  Store // New for Market Prices
+} from 'lucide-react';
 import { SidebarMenu, SidebarMenuItem, SidebarMenuButton } from '@/components/ui/sidebar';
 import { cn } from '@/lib/utils';
 
 const navItems = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/tasks', label: 'Tasks', icon: ListChecks },
-  { href: '/material-estimation', label: 'Material AI', icon: Calculator },
-  // Future items based on Product Spec Document, commented out for now
-  // { href: '/tenders', label: 'Tenders', icon: FileText },
-  // { href: '/labor', label: 'Labor', icon: Users },
-  // { href: '/inventory', label: 'Inventory', icon: Package },
+  { href: '/material-estimation', label: 'Material AI', icon: Brain },
+  { href: '/tenders', label: 'Tenders', icon: FileText },
+  { href: '/labor', label: 'Labor', icon: Users },
+  { href: '/boq-calculators', label: 'BOQ Calculators', icon: Calculator },
+  { href: '/architects', label: 'Architects', icon: DraftingCompass },
+  { href: '/projects', label: 'Projects', icon: KanbanSquare },
+  { href: '/financials', label: 'Financials', icon: Landmark },
+  { href: '/gst', label: 'GST Info', icon: ReceiptIndianRupee },
+  { href: '/market', label: 'Market Prices', icon: Store },
 ];
 
 export default function AppNavigation() {
