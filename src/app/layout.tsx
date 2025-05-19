@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Roboto } from 'next/font/google'; // Changed from Poppins, Montserrat
+import { Roboto } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { SidebarProvider, Sidebar, SidebarHeader, SidebarTrigger, SidebarContent, SidebarFooter } from '@/components/ui/sidebar';
@@ -7,13 +7,13 @@ import { Logo } from '@/components/icons/logo';
 import AppNavigation from '@/components/navigation';
 import { Button } from '@/components/ui/button';
 import { Settings, LogOut } from 'lucide-react';
-import { SidebarInset } from '@/components/ui/sidebar'; // Added SidebarInset
+import { SidebarInset } from '@/components/ui/sidebar';
 
-const roboto = Roboto({ // Changed to Roboto
+const roboto = Roboto({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-roboto', // Changed variable name
-  weight: ['300', '400', '500', '700'] // Adjusted weights for Roboto
+  variable: '--font-roboto',
+  weight: ['300', '400', '500', '700']
 });
 
 export const metadata: Metadata = {
@@ -28,12 +28,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${roboto.variable}`}> {/* Updated font variable */}
+    <html lang="en" suppressHydrationWarning className={roboto.variable}>
       <head>
-        {/* Primary color from the new theme: #1946BB */}
         <meta name="theme-color" content="#1946BB" />
       </head>
-      <body className="antialiased flex min-h-screen w-full bg-background"> {/* Added bg-background here for global page bg */}
+      <body className="antialiased flex min-h-screen w-full bg-background">
         <SidebarProvider defaultOpen>
           <Sidebar variant="sidebar" collapsible="icon" className="border-r border-sidebar-border shadow-lg bg-sidebar text-sidebar-foreground">
             <SidebarHeader className="p-4">
@@ -56,8 +55,7 @@ export default function RootLayout({
               </Button>
             </SidebarFooter>
           </Sidebar>
-          {/* Ensure SidebarInset wraps the main content area to respect sidebar dimensions */}
-          <SidebarInset className="flex-1 flex flex-col overflow-y-auto bg-background"> {/* Added bg-background to SidebarInset */}
+          <SidebarInset className="flex-1 flex flex-col overflow-y-auto bg-background">
             {children}
           </SidebarInset>
         </SidebarProvider>
