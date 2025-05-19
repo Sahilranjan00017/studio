@@ -1,21 +1,19 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Roboto } from 'next/font/google'; // Changed from Poppins, Montserrat
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
-import { SidebarProvider, Sidebar, SidebarHeader, SidebarTrigger, SidebarContent, SidebarFooter, SidebarInset } from '@/components/ui/sidebar';
+import { SidebarProvider, Sidebar, SidebarHeader, SidebarTrigger, SidebarContent, SidebarFooter } from '@/components/ui/sidebar';
 import { Logo } from '@/components/icons/logo';
 import AppNavigation from '@/components/navigation';
 import { Button } from '@/components/ui/button';
 import { Settings, LogOut } from 'lucide-react';
+import { SidebarInset } from '@/components/ui/sidebar'; // Added SidebarInset
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const roboto = Roboto({ // Changed to Roboto
   subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-roboto', // Changed variable name
+  weight: ['300', '400', '500', '700'] // Adjusted weights for Roboto
 });
 
 export const metadata: Metadata = {
@@ -30,13 +28,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${roboto.variable}`}> {/* Updated font variable */}
       <head>
-        <meta name="theme-color" content="#D97706" />
+        {/* Primary color from the new theme: #1946BB */}
+        <meta name="theme-color" content="#1946BB" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex min-h-screen w-full`}>
+      <body className="antialiased flex min-h-screen w-full bg-background"> {/* Added bg-background here for global page bg */}
         <SidebarProvider defaultOpen>
-          <Sidebar variant="sidebar" collapsible="icon" className="border-r border-sidebar-border shadow-md">
+          <Sidebar variant="sidebar" collapsible="icon" className="border-r border-sidebar-border shadow-lg bg-sidebar text-sidebar-foreground">
             <SidebarHeader className="p-4">
               <div className="flex items-center justify-between">
                 <Logo />
@@ -47,7 +46,6 @@ export default function RootLayout({
               <AppNavigation />
             </SidebarContent>
             <SidebarFooter className="p-4 mt-auto">
-               {/* Placeholder for user profile/settings - future enhancement */}
               <Button variant="ghost" className="w-full justify-start gap-2 text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
                 <Settings className="size-4" />
                 <span className="group-data-[collapsible=icon]:hidden">Settings</span>
@@ -58,7 +56,8 @@ export default function RootLayout({
               </Button>
             </SidebarFooter>
           </Sidebar>
-          <SidebarInset className="flex-1 flex flex-col overflow-y-auto">
+          {/* Ensure SidebarInset wraps the main content area to respect sidebar dimensions */}
+          <SidebarInset className="flex-1 flex flex-col overflow-y-auto bg-background"> {/* Added bg-background to SidebarInset */}
             {children}
           </SidebarInset>
         </SidebarProvider>

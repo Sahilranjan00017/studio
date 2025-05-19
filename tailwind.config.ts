@@ -1,6 +1,5 @@
-
 import type { Config } from "tailwindcss";
-import tailwindcssAnimate from "tailwindcss-animate";
+import tailwindcssAnimate from "tailwindcss-animate"; // Changed from require
 
 const config: Config = {
     darkMode: ["class"],
@@ -11,6 +10,10 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+      fontFamily: {
+        sans: ['var(--font-roboto)', 'sans-serif'], // Changed to Roboto
+        heading: ['var(--font-roboto)', 'sans-serif'], // Changed to Roboto, can be specialized if needed
+      },
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -92,7 +95,7 @@ const config: Config = {
   		}
   	}
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [tailwindcssAnimate], // Use imported variable
 };
 
 export default config;

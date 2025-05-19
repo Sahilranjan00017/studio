@@ -2,104 +2,101 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-}
-
 @layer base {
   :root {
-    /* New Blue and Orange Theme */
-    --background: 210 60% 97%; /* Very Light Blue */
-    --foreground: 215 40% 20%; /* Dark Blue-Gray */
+    /* BhoomiLink Theme - Blue, Orange, Yellow, Light Background */
+    --background: 220 100% 98.6%; /* #F8FAFF - Very Light Blue/Off-white */
+    --foreground: 225 25% 15%;    /* Dark Blue-Gray for text */
 
-    --card: 0 0% 100%; /* White cards for contrast */
-    --card-foreground: 215 40% 20%; /* Dark Blue-Gray */
+    --card: 0 0% 100%;             /* White */
+    --card-foreground: 225 25% 15%; /* Dark Blue-Gray */
 
-    --popover: 0 0% 100%; /* White popovers */
-    --popover-foreground: 215 40% 20%; /* Dark Blue-Gray */
+    --popover: 0 0% 100%;           /* White */
+    --popover-foreground: 225 25% 15%; /* Dark Blue-Gray */
 
-    --primary: 28 98% 55%; /* Vibrant Orange (was 30 90% 43%) */
+    --primary: 223 77% 42%;        /* #1946BB - Strong Blue */
     --primary-foreground: 0 0% 100%; /* White */
 
-    --secondary: 210 80% 85%; /* Lighter Blue */
-    --secondary-foreground: 215 40% 25%; /* Dark Blue-Gray */
+    --secondary: 28 100% 50%; /* #FF8C00 - A vibrant Orange, can adjust if #FCE942 is too light for secondary button text */
+    --secondary-foreground: 0 0% 100%; /* White (or a dark color if orange is too light) */
+    
+    /* If #FCE942 (Yellow) is specifically for accents that stand out */
+    --accent: 55 97% 63%;          /* #FCE942 - Yellow */
+    --accent-foreground: 240 10% 10%; /* Dark color for text on yellow accent */
 
-    --muted: 210 50% 92%; /* Light Muted Blue */
-    --muted-foreground: 215 30% 45%; /* Medium Blue-Gray */
-
-    --accent: 205 90% 55%; /* Bright Blue */
-    --accent-foreground: 0 0% 100%; /* White */
+    --muted: 220 40% 95%;         /* Light Muted Blue/Gray - for subtle backgrounds */
+    --muted-foreground: 220 20% 45%; /* Medium Blue/Gray for text on muted */
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 30% 80%; /* Medium Light Blue Border */
-    --input: 210 40% 94%; /* Light Blue Input Background */
-    --ring: 28 98% 55%; /* Vibrant Orange for focus rings */
+    --border: 220 30% 88%;         /* Light Blue/Gray Border, slightly darker than previous light theme */
+    --input: 0 0% 100%;             /* White background for inputs */
+    --ring: 223 77% 42%;           /* Strong Blue for focus rings - same as primary */
     
-    --chart-1: 28 98% 55%; /* Vibrant Orange */
-    --chart-2: 205 80% 50%; /* Medium Blue */
-    --chart-3: 35 95% 60%; /* Lighter Orange */
-    --chart-4: 215 70% 65%; /* Softer Blue */
-    --chart-5: 210 30% 70%; /* Muted Blue-Gray */
+    --chart-1: 223 77% 42%;        /* Primary Blue */
+    --chart-2: 28 100% 50%;        /* Secondary Orange */
+    --chart-3: 55 97% 63%;         /* Accent Yellow */
+    --chart-4: 210 90% 60%;        /* Lighter/Accent Blue */
+    --chart-5: 220 25% 65%;        /* Muted Blue-Gray for charts */
 
     --radius: 0.5rem;
 
-    /* Sidebar specific theme */
-    --sidebar-background: 215 45% 28%; /* Deep Blue */
-    --sidebar-foreground: 210 60% 90%; /* Light Cool Gray */
-    --sidebar-primary: 28 98% 55%; /* Vibrant Orange */
-    --sidebar-primary-foreground: 0 0% 100%; /* White */
-    --sidebar-accent: 215 40% 38%; /* Darker Blue for hover */
+    /* Sidebar specific theme - Keeping primary as blue for consistency with main theme */
+    --sidebar-background: 225 30% 18%; /* Darker Blue for Sidebar */
+    --sidebar-foreground: 220 40% 90%; /* Light Cool Gray for Sidebar Text */
+    --sidebar-primary: 28 100% 52%;    /* Orange for Sidebar Active/Primary elements */
+    --sidebar-primary-foreground: 0 0% 100%; /* White text on orange */
+    --sidebar-accent: 225 25% 25%; /* Darker Blue for hover */
     --sidebar-accent-foreground: 0 0% 100%; /* White */
-    --sidebar-border: 215 40% 35%; /* Slightly lighter Deep Blue for borders */
-    --sidebar-ring: 28 98% 55%; /* Vibrant Orange */
+    --sidebar-border: 225 25% 22%; 
+    --sidebar-ring: 28 100% 52%; 
   }
 
   .dark {
-    /* Define dark theme variables if needed in future, for now consistent with light */
-    --background: 215 30% 12%; /* Very Dark Blue */
-    --foreground: 210 50% 88%; /* Light Cool Gray */
+    --background: 225 25% 10%;    /* Very Dark Blue */
+    --foreground: 220 30% 92%;    /* Light Cool Gray */
 
-    --card: 215 30% 18%; /* Dark Blue Card */
-    --card-foreground: 210 50% 88%; /* Light Cool Gray */
+    --card: 225 25% 15%;          /* Dark Blue Card */
+    --card-foreground: 220 30% 92%; /* Light Cool Gray */
 
-    --popover: 215 30% 18%;
-    --popover-foreground: 210 50% 88%;
+    --popover: 225 25% 15%;
+    --popover-foreground: 220 30% 92%;
 
-    --primary: 28 98% 55%; /* Vibrant Orange */
+    --primary: 223 77% 50%;        /* Brighter Primary Blue for Dark Mode */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 30% 25%; /* Slightly lighter Dark Blue */
-    --secondary-foreground: 210 50% 88%;
+    --secondary: 28 100% 55%;       /* Slightly brighter Orange for Dark Mode */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 215 30% 22%;
-    --muted-foreground: 210 50% 70%; 
+    --accent: 55 97% 65%;          /* Slightly brighter Yellow for Dark Mode */
+    --accent-foreground: 240 10% 10%;
 
-    --accent: 205 85% 60%; /* Brighter Blue for dark mode accent */
-    --accent-foreground: 215 30% 12%; 
+    --muted: 225 25% 20%;
+    --muted-foreground: 220 30% 70%; 
 
     --destructive: 0 60% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 30% 30%;
-    --input: 215 30% 28%;
-    --ring: 28 98% 55%;
+    --border: 225 25% 25%;
+    --input: 225 25% 22%;
+    --ring: 223 77% 50%;
     
-    --chart-1: 28 98% 60%;
-    --chart-2: 205 80% 55%;
-    --chart-3: 35 95% 65%;
-    --chart-4: 215 70% 70%;
-    --chart-5: 210 30% 75%;
+    --chart-1: 223 77% 50%;
+    --chart-2: 28 100% 55%;
+    --chart-3: 55 97% 65%;
+    --chart-4: 210 90% 65%;
+    --chart-5: 220 25% 70%;
 
-    --sidebar-background: 215 35% 15%; /* Darker Blue for Dark Sidebar */
-    --sidebar-foreground: 210 50% 90%; /* Light Cool Gray Text */
-    --sidebar-primary: 28 98% 55%; /* Vibrant Orange */
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 215 30% 25%;
+    /* Dark Sidebar specific theme */
+    --sidebar-background: 225 20% 8%; /* Even Darker Blue for Sidebar */
+    --sidebar-foreground: 220 30% 90%; 
+    --sidebar-primary: 28 100% 55%; 
+    --sidebar-primary-foreground: 0 0% 100%; 
+    --sidebar-accent: 225 25% 18%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 215 30% 28%;
-    --sidebar-ring: 28 98% 55%;
+    --sidebar-border: 225 25% 15%;
+    --sidebar-ring: 28 100% 55%;
   }
 }
 
@@ -110,5 +107,10 @@ body {
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: var(--font-roboto), sans-serif; /* Changed to Roboto */
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-roboto), sans-serif; /* Changed to Roboto, can use Montserrat if preferred for headings */
+    @apply text-foreground font-semibold; /* Ensure headings also use foreground color by default and are bold */
   }
 }
