@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Roboto } from 'next/font/google';
+import { Roboto } from 'next/font/google'; // Using Roboto
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { SidebarProvider, Sidebar, SidebarHeader, SidebarTrigger, SidebarContent, SidebarFooter } from '@/components/ui/sidebar';
@@ -19,7 +19,7 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: 'BhoomiLink - Indian Contractor Platform',
   description: 'Manage your construction projects, labor, and finances with BhoomiLink.',
-  manifest: '/manifest.json',
+  // manifest: '/manifest.json', // Temporarily removed to diagnose hydration error
 };
 
 export default function RootLayout({
@@ -30,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={roboto.variable}>
       <head>
+        {/* Primary color from the new theme: #1946BB */}
         <meta name="theme-color" content="#1946BB" />
       </head>
       <body className="antialiased flex min-h-screen w-full bg-background">
