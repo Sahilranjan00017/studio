@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { PlusCircle, Search, MapPin, Phone, Mail, Building, Briefcase } from "lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogClose } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogClose, DialogDescription } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 
 
@@ -22,7 +22,7 @@ interface Architect {
   contactEmail?: string;
   contactPhone?: string;
   avatarUrl?: string;
-  dataAihint?: string; 
+  dataAihint?: string;
 }
 
 const sampleArchitects: Architect[] = [
@@ -151,3 +151,4 @@ export default function ArchitectsPage() {
     </div>
   );
 }
+
