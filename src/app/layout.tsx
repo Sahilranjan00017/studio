@@ -1,6 +1,6 @@
 
 import type { Metadata } from 'next';
-import { Roboto } from 'next/font/google'; // Using Roboto
+import { Roboto } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { SidebarProvider, Sidebar, SidebarHeader, SidebarTrigger, SidebarContent, SidebarFooter } from '@/components/ui/sidebar';
@@ -35,8 +35,7 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>BhoomiLink</title> {/* Basic title if metadata is off */}
-        {/* Primary color from the new theme: #1946BB */}
+        <title>BhoomiLink</title>
         <meta name="theme-color" content="#1946BB" />
       </head>
       <body className="antialiased flex min-h-screen w-full bg-background">
