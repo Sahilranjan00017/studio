@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google'; // Using Roboto
 import './globals.css';
@@ -16,11 +17,13 @@ const roboto = Roboto({
   weight: ['300', '400', '500', '700']
 });
 
+/*
+// Temporarily commented out to debug hydration error
 export const metadata: Metadata = {
   title: 'BhoomiLink - Indian Contractor Platform',
   description: 'Manage your construction projects, labor, and finances with BhoomiLink.',
-  // manifest: '/manifest.json', // Temporarily removed to diagnose hydration error
 };
+*/
 
 export default function RootLayout({
   children,
@@ -30,6 +33,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={roboto.variable}>
       <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>BhoomiLink</title> {/* Basic title if metadata is off */}
         {/* Primary color from the new theme: #1946BB */}
         <meta name="theme-color" content="#1946BB" />
       </head>
