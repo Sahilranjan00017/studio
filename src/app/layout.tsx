@@ -1,13 +1,12 @@
-
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google'; // Changed from Roboto to Inter as per latest landing page HTML
+import { Inter } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
-const inter = Inter({ // Changed from Roboto to Inter
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter', // Changed from --font-roboto to --font-inter
+  variable: '--font-inter',
 });
 
 // export const metadata: Metadata = {
@@ -40,7 +39,7 @@ export default function RootLayout({
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>ConstructX</title>
-        <meta name="theme-color" content="#2563eb" /> {/* Primary color from landing page example */}
+        <meta name="theme-color" content="#2563eb" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js" defer></script>
