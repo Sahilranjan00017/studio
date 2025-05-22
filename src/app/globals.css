@@ -4,90 +4,120 @@
 
 @layer base {
   :root {
-    /* Colors from the new landing page design */
-    --primary-val-raw: 37 99 235; /* #2563eb */
-    --secondary-val-raw: 16 185 129; /* #10b981 */
-    --dark-val-raw: 30 41 59; /* #1e293b */
-    --light-val-raw: 248 250 252; /* #f8fafc */
+    /* Original Theme from landing page */
+    --primary-val-raw: 37 99% 235%; /* Blue: #2563eb -> HSL approx: 221 83% 51% */
+    --secondary-val-raw: 16 185% 129%; /* Green: #10b981 -> HSL approx: 160 84% 38% */
+    --dark-val-raw: 30 41% 59%; /* Slate-800: #1e293b -> HSL approx: 215 30% 31% */
+    --light-val-raw: 248 250% 252%; /* Slate-50: #f8fafc -> HSL approx: 210 17% 98% */
 
-    /* Convert to HSL - Approximate HSL values for the given hex */
-    /* Primary: #2563eb -> approx hsl(221, 83%, 51%) */
-    /* Secondary: #10b981 -> approx hsl(160, 84%, 38%) */
-    /* Dark: #1e293b -> approx hsl(215, 30%, 31%) */
-    /* Light: #f8fafc -> approx hsl(210, 17%, 98%) */
+    /* New Theme based on user request (Blue/Orange/Yellow) */
+    /* Primary: #1946BB -> HSL approx: 223 77% 42% */
+    /* Secondary/Accent: Orange -> HSL approx: 28 100% 50% (e.g. #FF9100) */
+    /* Accent 2: Yellow -> HSL approx: 55 97% 63% (e.g. #FCE942) */
+    /* Background: #F8FAFF -> HSL approx: 220 100% 98.6% */
+    /* Foreground/Text: Dark Blue-Gray -> HSL approx: 225 25% 15% (e.g. #1D2434) */
 
-    --background: hsl(210 17% 98%); /* var(--light) */
-    --foreground: hsl(215 30% 31%); /* var(--dark) */
+    --background: 220 100% 98.6%; /* #F8FAFF */
+    --foreground: 225 25% 15%; /* Dark Blue-Gray */
 
-    --card: hsl(0 0% 100%);
-    --card-foreground: hsl(215 30% 31%);
+    --card: 0 0% 100%; /* White */
+    --card-foreground: var(--foreground);
 
-    --popover: hsl(0 0% 100%);
-    --popover-foreground: hsl(215 30% 31%);
+    --popover: 0 0% 100%;
+    --popover-foreground: var(--foreground);
 
-    --primary-val: 221 83% 51%; /* var(--primary) #2563eb */
+    --primary-val: 223 77% 42%; /* #1946BB - Strong Blue */
     --primary-hsl: hsl(var(--primary-val));
-    --primary-foreground: hsl(210 40% 98%); /* White for good contrast on blue */
+    --primary-foreground: 0 0% 100%; /* White for good contrast on blue */
 
-    --secondary-val: 160 84% 38%; /* var(--secondary) #10b981 */
+    --secondary-val: 28 100% 50%; /* Orange e.g., #FF9100 */
     --secondary-hsl: hsl(var(--secondary-val));
-    --secondary-foreground: hsl(210 40% 98%); /* White for good contrast on green */
+    --secondary-foreground: 0 0% 100%; /* White for good contrast on orange */
     
-    --accent: hsl(var(--secondary-val)); /* Using secondary green as accent */
-    --accent-foreground: hsl(210 40% 98%);
+    --accent: hsl(var(--secondary-val)); /* Orange as main accent */
+    --accent-foreground: var(--primary-foreground);
 
-    --muted: hsl(210 40% 96.1%);
-    --muted-foreground: hsl(215.4 16.3% 46.9%);
+    --muted: 220 60% 96.1%; /* Lighter shade for muted backgrounds */
+    --muted-foreground: 225 15% 45%; /* Darker muted text */
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: hsl(210 40% 98%);
+    --destructive-foreground: 0 0% 100%;
 
-    --border: hsl(214.3 31.8% 91.4%);
-    --input: hsl(214.3 31.8% 91.4%);
+    --border: 220 30% 88%; /* Lighter border */
+    --input: 220 30% 94%; /* Slightly off-white for inputs */
     --ring: hsl(var(--primary-val));
     
     --chart-1: var(--primary-hsl);
     --chart-2: var(--secondary-hsl);
-    --chart-3: hsl(193 97% 63%); /* A light blue for charts */
-    --chart-4: hsl(38 92% 50%);  /* An orange/yellow for charts */
-    --chart-5: hsl(220 25% 65%); /* Muted Blue-Gray for charts */
+    --chart-3: 55 97% 63%; /* Yellow for charts #FCE942 */
+    --chart-4: 190 70% 50%; /* A Teal/Cyan for charts */
+    --chart-5: 240 60% 65%; /* A Muted Blue-Purple for charts */
 
     --radius: 0.5rem;
+
+    /* Sidebar Specific Theme Variables (Light Mode) */
+    --sidebar-background: hsl(var(--primary-val)); /* Primary blue */
+    --sidebar-foreground: hsl(var(--primary-foreground)); /* White text */
+    --sidebar-border: hsl(var(--primary-val) / 0.8); /* Darker shade of primary for border */
+    
+    --sidebar-muted: hsl(var(--primary-val) / 0.9);
+    --sidebar-muted-foreground: hsl(var(--primary-foreground) / 0.7);
+    
+    --sidebar-accent: hsl(var(--secondary-val)); /* Orange for accent/hover */
+    --sidebar-accent-foreground: hsl(var(--secondary-foreground)); /* White text on orange */
+    
+    --sidebar-primary: hsl(var(--secondary-val)); /* Orange for active item background */
+    --sidebar-primary-foreground: hsl(var(--secondary-foreground)); /* White text on orange */
+
+    --sidebar-ring: hsl(var(--secondary-val)); /* Orange for focus rings */
   }
 
   .dark {
-    --background: hsl(215 30% 15%); /* Darker version of --dark */
-    --foreground: hsl(210 17% 85%); /* Lighter version of --light */
+    --background: 225 25% 10%; /* Darker Blue-Gray for dark mode */
+    --foreground: 220 100% 95%; /* Very light text for dark mode */
 
-    --card: hsl(215 30% 20%);
-    --card-foreground: hsl(210 17% 85%);
+    --card: 225 25% 15%;
+    --card-foreground: var(--foreground);
 
-    --popover: hsl(215 30% 20%);
-    --popover-foreground: hsl(210 17% 85%);
+    --popover: 225 25% 15%;
+    --popover-foreground: var(--foreground);
 
-    --primary-val: 221 83% 61%; /* Slightly lighter blue for dark mode */
+    --primary-val: 223 77% 52%; /* Slightly lighter blue for dark mode */
     --primary-hsl: hsl(var(--primary-val));
-    --primary-foreground: hsl(210 40% 98%);
+    --primary-foreground: 0 0% 100%;
 
-    --secondary-val: 160 84% 48%; /* Slightly lighter green for dark mode */
+    --secondary-val: 28 100% 60%; /* Slightly lighter orange for dark mode */
     --secondary-hsl: hsl(var(--secondary-val));
-    --secondary-foreground: hsl(210 40% 98%);
+    --secondary-foreground: 0 0% 100%;
 
     --accent: hsl(var(--secondary-val));
-    --accent-foreground: hsl(210 40% 98%);
+    --accent-foreground: var(--secondary-foreground);
 
-    --muted: hsl(217 32.6% 27.5%);
-    --muted-foreground: hsl(215 20.2% 65.1%);
+    --muted: 225 20% 20%;
+    --muted-foreground: 220 60% 70%;
 
-    --destructive: 0 62.8% 50.6%;
-    --destructive-foreground: hsl(0 85.7% 97.3%);
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: hsl(217 32.6% 27.5%);
-    --input: hsl(217 32.6% 27.5%);
-    --ring: hsl(var(--primary-val));
+    --border: 225 20% 25%;
+    --input: 225 20% 22%;
+    --ring: hsl(var(--secondary-val)); /* Accent color for ring in dark mode */
 
-    --chart-1: var(--primary-hsl);
-    --chart-2: var(--secondary-hsl);
+    /* Sidebar Specific Theme Variables (Dark Mode) */
+    --sidebar-background: hsl(225 25% 12%); /* Darker primary blue */
+    --sidebar-foreground: hsl(0 0% 95%); /* Light text */
+    --sidebar-border: hsl(225 25% 18%); 
+    
+    --sidebar-muted: hsl(225 25% 20%);
+    --sidebar-muted-foreground: hsl(0 0% 70%);
+    
+    --sidebar-accent: hsl(var(--secondary-val) / 0.8); /* Orange for accent/hover */
+    --sidebar-accent-foreground: hsl(var(--secondary-foreground)); 
+    
+    --sidebar-primary: hsl(var(--secondary-val)); /* Orange for active item background */
+    --sidebar-primary-foreground: hsl(var(--secondary-foreground));
+
+    --sidebar-ring: hsl(var(--secondary-val));
   }
 }
 
@@ -98,20 +128,19 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
-    font-family: var(--font-inter), sans-serif; /* Use CSS variable for Inter */
+    font-family: var(--font-inter), sans-serif; /* Fallback to sans-serif */
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     scroll-behavior: smooth;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-inter), sans-serif; /* Use CSS variable for Inter */
+    font-family: var(--font-inter), sans-serif; /* Fallback to sans-serif for headings */
     @apply text-foreground font-semibold;
   }
-  /* Canvas style from landing page moved to page.tsx's script */
 }
 
-/* Custom styles from provided HTML */
+/* Custom styles from ConstructX HTML for landing page */
 .section {
     min-height: 100vh;
     width: 100%;
@@ -196,7 +225,7 @@
 
 .feature-card {
     background: rgba(255, 255, 255, 0.95);
-    /* backdrop-filter: blur(10px); Removed for wider browser compatibility, can be added back */
+    /* backdrop-filter: blur(10px); Removed for wider browser compatibility, can be added back if needed */
     border-radius: 16px;
     padding: 2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
@@ -268,19 +297,21 @@
 .stats-card {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 12px;
-    padding: 1.5rem;
+    padding: 1.25rem; /* Reduced padding */
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     text-align: center;
 }
 
 .stats-number {
-    font-size: 2.5rem;
+    font-size: 1.875rem; /* Reduced from 2.5rem (text-3xl equivalent) */
+    line-height: 2.25rem; /* Added line-height */
     font-weight: 700;
     margin-bottom: 0.5rem;
     background: linear-gradient(90deg, hsl(var(--primary-val)), hsl(var(--secondary-val)));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    overflow-wrap: break-word; /* Helps with long strings like currency */
 }
 
 .stats-label {
@@ -295,5 +326,9 @@
     
     .section-subtitle {
         font-size: 1.1rem;
+    }
+    .stats-number {
+      font-size: 1.5rem; /* Further reduce for very small screens if needed */
+      line-height: 2rem;
     }
 }
