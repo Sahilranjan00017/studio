@@ -4,29 +4,36 @@
 
 @layer base {
   :root {
-    --primary: #2563eb; /* Blue */
-    --secondary: #10b981; /* Green */
-    --dark: #1e293b; /* Dark Slate Blue */
-    --light: #f8fafc; /* Very Light Gray/Off-White */
+    /* Colors from the new landing page design */
+    --primary-val-raw: 37 99 235; /* #2563eb */
+    --secondary-val-raw: 16 185 129; /* #10b981 */
+    --dark-val-raw: 30 41 59; /* #1e293b */
+    --light-val-raw: 248 250 252; /* #f8fafc */
 
-    --background: hsl(220 43% 98%); /* var(--light) */
-    --foreground: hsl(222 47% 11%); /* var(--dark) */
+    /* Convert to HSL - Approximate HSL values for the given hex */
+    /* Primary: #2563eb -> approx hsl(221, 83%, 51%) */
+    /* Secondary: #10b981 -> approx hsl(160, 84%, 38%) */
+    /* Dark: #1e293b -> approx hsl(215, 30%, 31%) */
+    /* Light: #f8fafc -> approx hsl(210, 17%, 98%) */
+
+    --background: hsl(210 17% 98%); /* var(--light) */
+    --foreground: hsl(215 30% 31%); /* var(--dark) */
 
     --card: hsl(0 0% 100%);
-    --card-foreground: hsl(222 47% 11%);
+    --card-foreground: hsl(215 30% 31%);
 
     --popover: hsl(0 0% 100%);
-    --popover-foreground: hsl(222 47% 11%);
+    --popover-foreground: hsl(215 30% 31%);
 
-    --primary-val: 223 77% 56%; /* var(--primary) */
+    --primary-val: 221 83% 51%; /* var(--primary) #2563eb */
     --primary-hsl: hsl(var(--primary-val));
-    --primary-foreground: hsl(210 40% 98%);
+    --primary-foreground: hsl(210 40% 98%); /* White for good contrast on blue */
 
-    --secondary-val: 157 80% 42%; /* var(--secondary) */
+    --secondary-val: 160 84% 38%; /* var(--secondary) #10b981 */
     --secondary-hsl: hsl(var(--secondary-val));
-    --secondary-foreground: hsl(210 40% 98%);
+    --secondary-foreground: hsl(210 40% 98%); /* White for good contrast on green */
     
-    --accent: hsl(var(--secondary-val)); /* Using secondary as accent */
+    --accent: hsl(var(--secondary-val)); /* Using secondary green as accent */
     --accent-foreground: hsl(210 40% 98%);
 
     --muted: hsl(210 40% 96.1%);
@@ -41,42 +48,42 @@
     
     --chart-1: var(--primary-hsl);
     --chart-2: var(--secondary-hsl);
-    --chart-3: 193 97% 63%; /* A light blue for charts */
-    --chart-4: 38 92% 50%;  /* An orange/yellow for charts */
-    --chart-5: 220 25% 65%; /* Muted Blue-Gray for charts */
+    --chart-3: hsl(193 97% 63%); /* A light blue for charts */
+    --chart-4: hsl(38 92% 50%);  /* An orange/yellow for charts */
+    --chart-5: hsl(220 25% 65%); /* Muted Blue-Gray for charts */
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: hsl(222 47% 11%); /* var(--dark) */
-    --foreground: hsl(210 40% 98%); /* var(--light) */
+    --background: hsl(215 30% 15%); /* Darker version of --dark */
+    --foreground: hsl(210 17% 85%); /* Lighter version of --light */
 
-    --card: hsl(222 47% 15%);
-    --card-foreground: hsl(210 40% 98%);
+    --card: hsl(215 30% 20%);
+    --card-foreground: hsl(210 17% 85%);
 
-    --popover: hsl(222 47% 15%);
-    --popover-foreground: hsl(210 40% 98%);
+    --popover: hsl(215 30% 20%);
+    --popover-foreground: hsl(210 17% 85%);
 
-    --primary-val: 223 77% 56%;
+    --primary-val: 221 83% 61%; /* Slightly lighter blue for dark mode */
     --primary-hsl: hsl(var(--primary-val));
     --primary-foreground: hsl(210 40% 98%);
 
-    --secondary-val: 157 80% 42%;
+    --secondary-val: 160 84% 48%; /* Slightly lighter green for dark mode */
     --secondary-hsl: hsl(var(--secondary-val));
     --secondary-foreground: hsl(210 40% 98%);
 
     --accent: hsl(var(--secondary-val));
     --accent-foreground: hsl(210 40% 98%);
 
-    --muted: hsl(217 32.6% 17.5%);
+    --muted: hsl(217 32.6% 27.5%);
     --muted-foreground: hsl(215 20.2% 65.1%);
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62.8% 50.6%;
     --destructive-foreground: hsl(0 85.7% 97.3%);
 
-    --border: hsl(217 32.6% 17.5%);
-    --input: hsl(217 32.6% 17.5%);
+    --border: hsl(217 32.6% 27.5%);
+    --input: hsl(217 32.6% 27.5%);
     --ring: hsl(var(--primary-val));
 
     --chart-1: var(--primary-hsl);
@@ -91,24 +98,17 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
-    font-family: var(--font-inter), sans-serif; /* Updated font */
+    font-family: var(--font-inter), sans-serif; /* Use CSS variable for Inter */
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     scroll-behavior: smooth;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-inter), sans-serif; /* Updated font */
+    font-family: var(--font-inter), sans-serif; /* Use CSS variable for Inter */
     @apply text-foreground font-semibold;
   }
-  canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-  }
+  /* Canvas style from landing page moved to page.tsx's script */
 }
 
 /* Custom styles from provided HTML */
@@ -131,7 +131,7 @@
 }
 
 .gradient-text {
-    background: linear-gradient(90deg, var(--primary-hsl), var(--secondary-hsl));
+    background: linear-gradient(90deg, hsl(var(--primary-val)), hsl(var(--secondary-val)));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -151,7 +151,7 @@
     transform: translateX(-50%);
     width: 0;
     height: 2px;
-    background: var(--primary-hsl);
+    background: hsl(var(--primary-val));
     transition: width 0.3s ease;
 }
 
@@ -160,7 +160,7 @@
 }
 
 .btn-primary {
-    background: linear-gradient(90deg, var(--primary-hsl), var(--secondary-hsl));
+    background: linear-gradient(90deg, hsl(var(--primary-val)), hsl(var(--secondary-val)));
     color: white;
     border: none;
     padding: 0.8rem 2rem;
@@ -169,18 +169,18 @@
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 4px 15px hsla(var(--primary-val) / 0.3);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+    box-shadow: 0 8px 25px hsla(var(--primary-val) / 0.4);
 }
 
 .btn-outline {
     background: transparent;
-    color: var(--primary-hsl);
-    border: 2px solid var(--primary-hsl);
+    color: hsl(var(--primary-val));
+    border: 2px solid hsl(var(--primary-val));
     padding: 0.8rem 2rem;
     font-size: 1rem;
     font-weight: 600;
@@ -190,7 +190,7 @@
 }
 
 .btn-outline:hover {
-    background: var(--primary-hsl);
+    background: hsl(var(--primary-val));
     color: white;
 }
 
@@ -260,7 +260,7 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, var(--primary-hsl), var(--secondary-hsl));
+    background: linear-gradient(135deg, hsl(var(--primary-val)), hsl(var(--secondary-val)));
     color: white;
     font-size: 1.5rem;
 }
@@ -277,7 +277,7 @@
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    background: linear-gradient(90deg, var(--primary-hsl), var(--secondary-hsl));
+    background: linear-gradient(90deg, hsl(var(--primary-val)), hsl(var(--secondary-val)));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
