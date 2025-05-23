@@ -1,3 +1,5 @@
+// This file is likely no longer needed as navigation is handled by the new landing page.
+// Keeping it for now, but it might be removed in future refactoring.
 'use client';
 
 import Link from 'next/link';
@@ -5,15 +7,15 @@ import { usePathname } from 'next/navigation';
 import { 
   LayoutDashboard, 
   ListChecks, 
-  Brain, // Changed from Calculator
+  Brain,
   FileText, 
   Users, 
-  Calculator, // New for BOQ Calculators
+  Calculator,
   DraftingCompass, 
-  KanbanSquare, // New for Projects
+  KanbanSquare,
   Landmark, 
   ReceiptIndianRupee,
-  Store // New for Market Prices
+  Store
 } from 'lucide-react';
 import { SidebarMenu, SidebarMenuItem, SidebarMenuButton } from '@/components/ui/sidebar';
 import { cn } from '@/lib/utils';

@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import tailwindcssAnimate from "tailwindcss-animate"; // Changed from require
+import tailwindcssAnimate from "tailwindcss-animate";
 
 const config: Config = {
     darkMode: ["class"],
@@ -11,8 +11,8 @@ const config: Config = {
   theme: {
   	extend: {
       fontFamily: {
-        sans: ['var(--font-roboto)', 'sans-serif'], // Changed to Roboto
-        heading: ['var(--font-roboto)', 'sans-serif'], // Changed to Roboto, can be specialized if needed
+        sans: ['var(--font-inter)', 'sans-serif'], // Changed to Inter
+        heading: ['var(--font-inter)', 'sans-serif'], // Changed to Inter
       },
   		colors: {
   			background: 'hsl(var(--background))',
@@ -26,11 +26,11 @@ const config: Config = {
   				foreground: 'hsl(var(--popover-foreground))'
   			},
   			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
+  				DEFAULT: 'hsl(var(--primary-val))', // Updated to use --primary-val
   				foreground: 'hsl(var(--primary-foreground))'
   			},
   			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
+  				DEFAULT: 'hsl(var(--secondary-val))', // Updated to use --secondary-val
   				foreground: 'hsl(var(--secondary-foreground))'
   			},
   			muted: {
@@ -55,16 +55,7 @@ const config: Config = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			},
-  			sidebar: {
-  				DEFAULT: 'hsl(var(--sidebar-background))',
-  				foreground: 'hsl(var(--sidebar-foreground))',
-  				primary: 'hsl(var(--sidebar-primary))',
-  				'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-  				accent: 'hsl(var(--sidebar-accent))',
-  				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-  				border: 'hsl(var(--sidebar-border))',
-  				ring: 'hsl(var(--sidebar-ring))'
-  			}
+        // Sidebar colors are no longer primary as sidebar is removed from RootLayout
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -95,7 +86,7 @@ const config: Config = {
   		}
   	}
   },
-  plugins: [tailwindcssAnimate], // Use imported variable
+  plugins: [tailwindcssAnimate],
 };
 
 export default config;

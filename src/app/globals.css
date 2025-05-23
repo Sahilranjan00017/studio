@@ -4,98 +4,120 @@
 
 @layer base {
   :root {
-    /* BhoomiLink Theme - Blue, Orange, Yellow, Light Background */
-    --background: 220 100% 98.6%; /* #F8FAFF - Very Light Blue/Off-white */
-    --foreground: 225 25% 15%;    /* Dark Blue-Gray for text */
+    /* Original Theme from landing page */
+    --primary-val-raw: 37 99% 235%; /* Blue: #2563eb -> HSL approx: 221 83% 51% */
+    --secondary-val-raw: 16 185% 129%; /* Green: #10b981 -> HSL approx: 160 84% 38% */
+    --dark-val-raw: 30 41% 59%; /* Slate-800: #1e293b -> HSL approx: 215 30% 31% */
+    --light-val-raw: 248 250% 252%; /* Slate-50: #f8fafc -> HSL approx: 210 17% 98% */
 
-    --card: 0 0% 100%;             /* White */
-    --card-foreground: 225 25% 15%; /* Dark Blue-Gray */
+    /* New Theme based on user request (Blue/Orange/Yellow) */
+    /* Primary: #1946BB -> HSL approx: 223 77% 42% */
+    /* Secondary/Accent: Orange -> HSL approx: 28 100% 50% (e.g. #FF9100) */
+    /* Accent 2: Yellow -> HSL approx: 55 97% 63% (e.g. #FCE942) */
+    /* Background: #F8FAFF -> HSL approx: 220 100% 98.6% */
+    /* Foreground/Text: Dark Blue-Gray -> HSL approx: 225 25% 15% (e.g. #1D2434) */
 
-    --popover: 0 0% 100%;           /* White */
-    --popover-foreground: 225 25% 15%; /* Dark Blue-Gray */
+    --background: 220 100% 98.6%; /* #F8FAFF */
+    --foreground: 225 25% 15%; /* Dark Blue-Gray */
 
-    --primary: 223 77% 42%;        /* #1946BB - Strong Blue */
-    --primary-foreground: 0 0% 100%; /* White */
+    --card: 0 0% 100%; /* White */
+    --card-foreground: var(--foreground);
 
-    --secondary: 28 100% 50%; /* #FF8C00 - A vibrant Orange */
-    --secondary-foreground: 0 0% 100%; /* White */
+    --popover: 0 0% 100%;
+    --popover-foreground: var(--foreground);
+
+    --primary-val: 223 77% 42%; /* #1946BB - Strong Blue */
+    --primary-hsl: hsl(var(--primary-val));
+    --primary-foreground: 0 0% 100%; /* White for good contrast on blue */
+
+    --secondary-val: 28 100% 50%; /* Orange e.g., #FF9100 */
+    --secondary-hsl: hsl(var(--secondary-val));
+    --secondary-foreground: 0 0% 100%; /* White for good contrast on orange */
     
-    --accent: 55 97% 63%;          /* #FCE942 - Yellow */
-    --accent-foreground: 240 10% 10%; /* Dark color for text on yellow accent */
+    --accent: hsl(var(--secondary-val)); /* Orange as main accent */
+    --accent-foreground: var(--primary-foreground);
 
-    --muted: 220 40% 95%;         /* Light Muted Blue/Gray - for subtle backgrounds */
-    --muted-foreground: 220 20% 45%; /* Medium Blue/Gray for text on muted */
+    --muted: 220 60% 96.1%; /* Lighter shade for muted backgrounds */
+    --muted-foreground: 225 15% 45%; /* Darker muted text */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 30% 88%; /* Lighter border */
+    --input: 220 30% 94%; /* Slightly off-white for inputs */
+    --ring: hsl(var(--primary-val));
+    
+    --chart-1: var(--primary-hsl);
+    --chart-2: var(--secondary-hsl);
+    --chart-3: 55 97% 63%; /* Yellow for charts #FCE942 */
+    --chart-4: 190 70% 50%; /* A Teal/Cyan for charts */
+    --chart-5: 240 60% 65%; /* A Muted Blue-Purple for charts */
+
+    --radius: 0.5rem;
+
+    /* Sidebar Specific Theme Variables (Light Mode) */
+    --sidebar-background: hsl(var(--primary-val)); /* Primary blue */
+    --sidebar-foreground: hsl(var(--primary-foreground)); /* White text */
+    --sidebar-border: hsl(var(--primary-val) / 0.8); /* Darker shade of primary for border */
+    
+    --sidebar-muted: hsl(var(--primary-val) / 0.9);
+    --sidebar-muted-foreground: hsl(var(--primary-foreground) / 0.7);
+    
+    --sidebar-accent: hsl(var(--secondary-val)); /* Orange for accent/hover */
+    --sidebar-accent-foreground: hsl(var(--secondary-foreground)); /* White text on orange */
+    
+    --sidebar-primary: hsl(var(--secondary-val)); /* Orange for active item background */
+    --sidebar-primary-foreground: hsl(var(--secondary-foreground)); /* White text on orange */
+
+    --sidebar-ring: hsl(var(--secondary-val)); /* Orange for focus rings */
+  }
+
+  .dark {
+    --background: 225 25% 10%; /* Darker Blue-Gray for dark mode */
+    --foreground: 220 100% 95%; /* Very light text for dark mode */
+
+    --card: 225 25% 15%;
+    --card-foreground: var(--foreground);
+
+    --popover: 225 25% 15%;
+    --popover-foreground: var(--foreground);
+
+    --primary-val: 223 77% 52%; /* Slightly lighter blue for dark mode */
+    --primary-hsl: hsl(var(--primary-val));
+    --primary-foreground: 0 0% 100%;
+
+    --secondary-val: 28 100% 60%; /* Slightly lighter orange for dark mode */
+    --secondary-hsl: hsl(var(--secondary-val));
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: hsl(var(--secondary-val));
+    --accent-foreground: var(--secondary-foreground);
+
+    --muted: 225 20% 20%;
+    --muted-foreground: 220 60% 70%;
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 30% 88%;         /* Light Blue/Gray Border */
-    --input: 0 0% 100%;             /* White background for inputs */
-    --ring: 223 77% 42%;           /* Strong Blue for focus rings - same as primary */
+    --border: 225 20% 25%;
+    --input: 225 20% 22%;
+    --ring: hsl(var(--secondary-val)); /* Accent color for ring in dark mode */
+
+    /* Sidebar Specific Theme Variables (Dark Mode) */
+    --sidebar-background: hsl(225 25% 12%); /* Darker primary blue */
+    --sidebar-foreground: hsl(0 0% 95%); /* Light text */
+    --sidebar-border: hsl(225 25% 18%); 
     
-    --chart-1: 223 77% 42%;        /* Primary Blue */
-    --chart-2: 28 100% 50%;        /* Secondary Orange */
-    --chart-3: 55 97% 63%;         /* Accent Yellow */
-    --chart-4: 210 90% 60%;        /* Lighter/Accent Blue */
-    --chart-5: 220 25% 65%;        /* Muted Blue-Gray for charts */
-
-    --radius: 0.5rem;
-
-    /* Sidebar specific theme - Blue background, Orange accents */
-    --sidebar-background: hsl(var(--primary));         /* Primary Blue */
-    --sidebar-foreground: hsl(var(--primary-foreground)); /* White text */
-    --sidebar-primary: 28 100% 52%;                 /* Orange for Sidebar Active/Primary elements */
-    --sidebar-primary-foreground: 0 0% 100%;          /* White text on orange */
-    --sidebar-accent: 223 77% 50%;                  /* Lighter/brighter blue for hover on primary blue background */
-    --sidebar-accent-foreground: 0 0% 100%;           /* White text on lighter blue */
-    --sidebar-border: 223 77% 35%;                   /* Darker blue for border */
-    --sidebar-ring: 28 100% 52%;                     /* Orange for focus ring */
-  }
-
-  .dark {
-    --background: 225 25% 10%;    /* Very Dark Blue */
-    --foreground: 220 30% 92%;    /* Light Cool Gray */
-
-    --card: 225 25% 15%;          /* Dark Blue Card */
-    --card-foreground: 220 30% 92%; /* Light Cool Gray */
-
-    --popover: 225 25% 15%;
-    --popover-foreground: 220 30% 92%;
-
-    --primary: 223 77% 50%;        /* Brighter Primary Blue for Dark Mode */
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 28 100% 55%;       /* Slightly brighter Orange for Dark Mode */
-    --secondary-foreground: 0 0% 100%;
-
-    --accent: 55 97% 65%;          /* Slightly brighter Yellow for Dark Mode */
-    --accent-foreground: 240 10% 10%;
-
-    --muted: 225 25% 20%;
-    --muted-foreground: 220 30% 70%; 
-
-    --destructive: 0 60% 45%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 225 25% 25%;
-    --input: 225 25% 22%;
-    --ring: 223 77% 50%;
+    --sidebar-muted: hsl(225 25% 20%);
+    --sidebar-muted-foreground: hsl(0 0% 70%);
     
-    --chart-1: 223 77% 50%;
-    --chart-2: 28 100% 55%;
-    --chart-3: 55 97% 65%;
-    --chart-4: 210 90% 65%;
-    --chart-5: 220 25% 70%;
+    --sidebar-accent: hsl(var(--secondary-val) / 0.8); /* Orange for accent/hover */
+    --sidebar-accent-foreground: hsl(var(--secondary-foreground)); 
+    
+    --sidebar-primary: hsl(var(--secondary-val)); /* Orange for active item background */
+    --sidebar-primary-foreground: hsl(var(--secondary-foreground));
 
-    /* Dark Sidebar specific theme - Dark Blue background, Orange accents */
-    --sidebar-background: 225 25% 12%;                 /* Darker Blue, slightly darker than dark card */
-    --sidebar-foreground: 220 30% 92%;               /* Light Cool Gray */
-    --sidebar-primary: 28 100% 55%;                  /* Brighter Orange for active items */
-    --sidebar-primary-foreground: 0 0% 100%;           /* White text on orange */
-    --sidebar-accent: 225 25% 20%;                  /* Slightly Lighter Dark Blue for hover */
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 225 25% 18%;                   /* Slightly darker border for dark sidebar */
-    --sidebar-ring: 28 100% 55%;                     /* Orange for focus ring */
+    --sidebar-ring: hsl(var(--secondary-val));
   }
 }
 
@@ -106,10 +128,207 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
-    font-family: var(--font-roboto), sans-serif;
+    font-family: var(--font-inter), sans-serif; /* Fallback to sans-serif */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-roboto), sans-serif;
+    font-family: var(--font-inter), sans-serif; /* Fallback to sans-serif for headings */
     @apply text-foreground font-semibold;
   }
+}
+
+/* Custom styles from ConstructX HTML for landing page */
+.section {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5%;
+    position: relative;
+    z-index: 2;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, hsl(var(--primary-val)), hsl(var(--secondary-val)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.nav-link {
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: hsl(var(--primary-val));
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, hsl(var(--primary-val)), hsl(var(--secondary-val)));
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px hsla(var(--primary-val) / 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px hsla(var(--primary-val) / 0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    color: hsl(var(--primary-val));
+    border: 2px solid hsl(var(--primary-val));
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: hsl(var(--primary-val));
+    color: white;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.95);
+    /* backdrop-filter: blur(10px); Removed for wider browser compatibility, can be added back if needed */
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.floating-element {
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-20px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-10px) translateX(-50%);
+    }
+}
+
+.section-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.section-subtitle {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    color: #64748b; /* Consider using a foreground variant */
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, hsl(var(--primary-val)), hsl(var(--secondary-val)));
+    color: white;
+    font-size: 1.5rem;
+}
+
+.stats-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 1.25rem; /* Reduced padding */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.stats-number {
+    font-size: 1.875rem; /* Reduced from 2.5rem (text-3xl equivalent) */
+    line-height: 2.25rem; /* Added line-height */
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, hsl(var(--primary-val)), hsl(var(--secondary-val)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    overflow-wrap: break-word; /* Helps with long strings like currency */
+}
+
+.stats-label {
+    color: #64748b; /* Consider using a foreground variant */
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.1rem;
+    }
+    .stats-number {
+      font-size: 1.5rem; /* Further reduce for very small screens if needed */
+      line-height: 2rem;
+    }
 }
